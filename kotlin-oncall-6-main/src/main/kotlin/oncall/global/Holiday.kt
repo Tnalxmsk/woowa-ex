@@ -11,8 +11,9 @@ enum class Holiday(val month: Int, val day: Int) {
     CHRISTMAS(12,25);
 
     companion object {
-        fun from(month: Int, day: Int): Holiday {
-            return entries.find { it.month == month && it.day == day }!!
+        fun isHoliday(month: Int, day: Int): Boolean {
+            entries.find { it.month == month && it.day == day } ?: return false
+            return true
         }
     }
 }
