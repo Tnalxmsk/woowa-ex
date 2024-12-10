@@ -13,5 +13,9 @@ enum class DayOfWeek(val value: String) {
         fun from(dayOfWeek: String): DayOfWeek {
             return entries.find { it.value == dayOfWeek }!!
         }
+
+        fun isWeekday(dayOfWeek: String): Boolean {
+            return dayOfWeek != SATURDAY.value && dayOfWeek != SUNDAY.value
+        }
     }
 }
