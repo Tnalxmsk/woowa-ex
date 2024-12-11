@@ -16,7 +16,7 @@ class DailyWorker(
     fun changeWorker(prevDailyWorker: DailyWorker, nextDailyWorker: DailyWorker) {
         if (!isContinuousWork(prevDailyWorker.workerName())) return
         val nextDayOfWeek = DayOfWeek.nextDayOfWeek(date.dayOfWeek)
-        if (!DayOfWeek.isWeekday(date.dayOfWeek) && !DayOfWeek.isWeekday(nextDayOfWeek.value)) {
+        if (!DayOfWeek.isWeekday(date.dayOfWeek) || date.dayOfWeek.contains("(휴일)") && !DayOfWeek.isWeekday(nextDayOfWeek.value)) {
             val nowWorker = worker
             setWorker(nextDailyWorker.worker)
             nextDailyWorker.setWorker(nowWorker)

@@ -32,14 +32,14 @@ class DailyWorkerGeneratorTest {
         }
         val nextResult = ScheduleGenerator.generateAfterSchedule(result)
         val nextExpect = listOf(
-            "준팍", "도밥", "고니", "수아", "루루", "수아", "루루",
-            "글로", "솔로스타", "우코", "슬링키", "참새", "글로", "솔로스타",
-            "도리", "준팍", "도밥", "고니", "수아", "우코", "슬링키",
-            "루루", "글로", "솔로스타", "우코", "슬링키", "참새", "도리",
-            "참새", "도리", "준팍")
+            "준팍", "도밥", "고니", "수아", "루루", "수아", "글로",
+            "루루", "글로", "솔로스타", "우코", "슬링키", "솔로스타", "우코",
+            "참새", "도리", "준팍", "도밥", "고니", "슬링키", "참새",
+            "수아", "루루", "글로", "솔로스타", "우코", "도리", "준팍",
+            "슬링키", "참새", "도리")
 
         for (index in nextResult.indices) {
-            assertThat(nextResult[index].workerName()).isEqualTo(expect[index])
+            assertThat(nextResult[index].workerName()).isEqualTo(nextExpect[index])
         }
     }
 }
