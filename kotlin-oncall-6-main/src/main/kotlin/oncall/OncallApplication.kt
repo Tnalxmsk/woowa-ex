@@ -12,7 +12,7 @@ class OncallApplication(
 
     fun run() {
         val allocationDate = inputPresenter.onInputDate()
-        val oncallWorker = inputPresenter.onInputEmployee()
+        val oncallWorker = inputPresenter.onInputWorker()
 
         val oldSchedule = oncallPresenter.createBeforeSchedule(allocationDate, oncallWorker)
         val newSchedule = oncallPresenter.createAfterSchedule(oldSchedule)

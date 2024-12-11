@@ -9,8 +9,8 @@ class DailyWorkerGeneratorTest {
 
     @Test
     fun `공휴일과 연속 근무를 고려하지 않은 근무표를 생성한다`() {
-        val weekdayEmployee = listOf("준팍", "도밥", "고니", "수아", "루루", "글로", "솔로스타", "우코", "슬링키", "참새", "도리").toWorkerQueue()
-        val weekendEmployee = listOf("수아", "루루", "글로", "솔로스타", "우코", "슬링키", "참새", "도리", "준팍", "도밥", "고니").toWorkerQueue()
+        val weekdayEmployee = "준팍,도밥,고니,수아,루루,글로,솔로스타,우코,슬링키,참새,도리".toWorkerQueue()
+        val weekendEmployee = "수아,루루,글로,솔로스타,우코,슬링키,참새,도리,준팍,도밥,고니".toWorkerQueue()
         val days = CalendarGenerator.generateCalendar(5, "월")
 
         val result = ScheduleGenerator.generateBeforeSchedule(weekdayEmployee, weekendEmployee, 5, days)

@@ -9,15 +9,15 @@ class InputView {
         return input
     }
 
-    fun readWeekdayWorkers(): List<String> {
+    fun readWeekdayWorkers(): String {
         print("평일 비상 근무 순번대로 사원 닉네임을 입력하세요> ")
         val input = Console.readLine()
-        return input.split(",")
+        return input
     }
 
-    fun readWeekendWorkers(): List<String> {
+    fun readWeekendWorkers(): String {
         print("주말 비상 근무 순번대로 사원 닉네임을 입력하세요> ")
         val input = Console.readLine()
-        return input.split(",")
+        return input
     }
 }
