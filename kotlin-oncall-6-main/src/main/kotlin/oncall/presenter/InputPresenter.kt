@@ -1,18 +1,18 @@
 package oncall.presenter
 
-import oncall.model.AllocationDate
+import oncall.model.OncallDate
 import oncall.view.InputView
 
 class InputPresenter(
     private val inputView: InputView,
 ) {
 
-    fun onInputDate(): AllocationDate {
+    fun onInputDate(): OncallDate {
         while (true) {
             try {
                 val date = inputView.readDate().split(",")
-                val allocationDate = AllocationDate(date.first().toInt(), date.last())
-                return allocationDate
+                val oncallDate = OncallDate(date.first().toInt(), date.last())
+                return oncallDate
             } catch (e: IllegalArgumentException) {
                 println(e.message)
             }
