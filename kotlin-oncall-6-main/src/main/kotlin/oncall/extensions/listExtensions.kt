@@ -1,11 +1,13 @@
 package oncall.extensions
 
+import oncall.model.Worker
 import java.util.*
 
-fun <T> List<T>.toQueue(): Queue<T> {
-    val queue: Queue<T> = LinkedList()
+fun List<String>.toWorkerQueue(): Queue<Worker> {
+    val queue: Queue<Worker> = LinkedList()
     for (element in this) {
-        queue.add(element)
+        val worker = Worker(element)
+        queue.add(worker)
     }
-    return LinkedList(this)
+    return queue
 }

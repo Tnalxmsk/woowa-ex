@@ -9,8 +9,8 @@ import java.util.Queue
 
 object ScheduleGenerator {
     fun generateBeforeSchedule(
-        weekdayEmployee: Queue<String>,
-        weekendEmployee: Queue<String>,
+        weekdayEmployee: Queue<Worker>,
+        weekendEmployee: Queue<Worker>,
         month: Int,
         days: List<String>
     ): MutableList<DailyWorker> {
@@ -41,14 +41,13 @@ object ScheduleGenerator {
     }
 
     private fun createDailyWorker(
-        employees: Queue<String>,
+        employees: Queue<Worker>,
         day: Int, weekOfDay: String
     ): DailyWorker {
-        val name = employees.poll()!!
+        val worker = employees.poll()!!
         val date = Date(day, weekOfDay)
-        val worker = Worker(name)
         val dailyWorker = DailyWorker(date, worker)
-        employees.add(name)
+        employees.add(worker)
         return dailyWorker
     }
 }
