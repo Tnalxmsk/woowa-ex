@@ -1,6 +1,8 @@
 package oncall.presenter
 
+import oncall.extensions.toQueue
 import oncall.model.OncallDate
+import oncall.model.OncallWorker
 import oncall.view.InputView
 
 class InputPresenter(
@@ -19,12 +21,12 @@ class InputPresenter(
         }
     }
 
-    fun onInputEmployee(): Pair<List<String>, List<String>> {
+    fun onInputEmployee(): OncallWorker {
         while (true) {
             try {
-                val weekdayEmployee = inputView.readWeekdayWorkers()
-                val weekendEmployee = inputView.readWeekendWorkers()
-                return Pair(weekdayEmployee, weekendEmployee)
+                val weekdayWorkers = inputView.readWeekdayWorkers()
+                val weekendWorkers = inputView.readWeekendWorkers()
+                return OncallWorker(weekdayWorkers.toQueue(), weekendWorkers.toQueue())
             } catch (e: IllegalArgumentException) {
                 println(e.message)
             }

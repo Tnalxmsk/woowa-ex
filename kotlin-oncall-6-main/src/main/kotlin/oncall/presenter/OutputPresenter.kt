@@ -10,7 +10,7 @@ class OutputPresenter(
 
     fun showSchedule(oncallDate: OncallDate, schedule: List<DailyWorker>) {
         for (worker in schedule) {
-            outputView.printDailyWorker(oncallDate.month, worker.day(), worker.dayOfWeek(), worker.workerName())
+            outputView.printDailyWorker(oncallDate.getMonth(), worker.day(), worker.dayOfWeek(), worker.workerName())
         }
     }
 }
